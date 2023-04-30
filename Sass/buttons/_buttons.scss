@@ -1,0 +1,57 @@
+.key {
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    text-align: center;
+    color: #ffffff;
+    background: #1cb0a0;
+    border-radius: 3px;
+    font-size: 86%;
+    font-weight: 500;
+    border: 2px solid #ababab;
+    cursor: pointer;
+    transition: border 0.2s, border-radius 0.3s, background-color 0.3s;
+
+    &:hover {
+        border: 2px solid #ffbf49a8;
+        transition: border 0.05s;
+    }
+
+
+}
+
+.backspace {
+    flex: 1 0 100px;
+}
+
+.tab,
+.delete,
+.caps-lock,
+.enter,
+.shift-left,
+.shift-right,
+.space {
+    flex: 1 0;
+}
+
+.space{
+    flex: 6 1; //344px;
+}
+
+.ctrl-left, .ctrl-right{
+    flex: 1 1;
+}
+
+.backspace, .tab,
+.delete,
+.caps-lock,
+.enter,
+.shift-left,
+.shift-right,
+.space,.ctrl-left,
+ .ctrl-right,
+ .alt-left,
+ .alt-right{
+    font-size: 91%;
+    font-weight: 700;
+}
