@@ -10,7 +10,7 @@
     font-weight: 500;
     border: 2px solid #ababab;
     cursor: pointer;
-    transition: border 0.2s, border-radius 0.3s, background-color 0.3s;
+    transition: border 0.2s, border-radius 0.2s, background-color 0.2s;
 
     &:hover {
         border: 2px solid #ffbf49a8;
@@ -26,7 +26,7 @@
 
 .tab,
 .delete,
-.caps-lock,
+.capslock,
 .enter,
 .shift-left,
 .shift-right,
@@ -44,7 +44,7 @@
 
 .backspace, .tab,
 .delete,
-.caps-lock,
+.capslock,
 .enter,
 .shift-left,
 .shift-right,
@@ -54,4 +54,13 @@
  .alt-right{
     font-size: 91%;
     font-weight: 700;
+}
+
+.active{
+    background: #fd4855;
+    border-color: #ffffff;
+    border-radius: 7px;
+    &:hover{
+        border-color: #ffffff;
+    }
 }

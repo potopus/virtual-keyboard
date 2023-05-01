@@ -288,7 +288,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-Q",
+        name: "KeyQ",
         langs: [
             {
                 country: "rus",
@@ -307,7 +307,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-W",
+        name: "KeyW",
         langs: [
             {
                 country: "rus",
@@ -326,7 +326,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-E",
+        name: "KeyE",
         langs: [
             {
                 country: "rus",
@@ -345,7 +345,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-R",
+        name: "KeyR",
         langs: [
             {
                 country: "rus",
@@ -364,7 +364,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-T",
+        name: "KeyT",
         langs: [
             {
                 country: "rus",
@@ -383,7 +383,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-Y",
+        name: "KeyY",
         langs: [
             {
                 country: "rus",
@@ -402,7 +402,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-U",
+        name: "KeyU",
         langs: [
             {
                 country: "rus",
@@ -421,7 +421,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-I",
+        name: "KeyI",
         langs: [
             {
                 country: "rus",
@@ -440,7 +440,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-O",
+        name: "KeyO",
         langs: [
             {
                 country: "rus",
@@ -459,7 +459,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-P",
+        name: "KeyP",
         langs: [
             {
                 country: "rus",
@@ -537,64 +537,64 @@ let keyList = [
 ],
 [
     {
-        name: "Caps-Lock",
+        name: "CapsLock",
         langs: [
             {
                 country: "rus",
-                caseDown: "Caps Lock",
-                caseUp: "Caps Lock",
-                caps: "Caps Lock",
-                shiftCaps: "Caps Lock"
+                caseDown: "CapsLock",
+                caseUp: "CapsLock",
+                caps: "CapsLock",
+                shiftCaps: "CapsLock"
             },
             {
                 country: "eng",
-                caseDown: "Caps Lock",
-                caseUp: "Caps Lock",
-                caps: "Caps Lock",
-                shiftCaps: "Caps Lock"
+                caseDown: "CapsLock",
+                caseUp: "CapsLock",
+                caps: "CapsLock",
+                shiftCaps: "CapsLock"
             }
         ]
     },
     {
-        name: "Key-A",
+        name: "KeyA",
         langs: [
             {
                 country: "rus",
                 caseDown: "ф",
                 caseUp: "Ф",
                 caps: "Ф",
-                shiftCaps: "Ф"
+                shiftCaps: "ф"
             },
             {
                 country: "eng",
                 caseDown: "a",
                 caseUp: "A",
                 caps: "A",
-                shiftCaps: "A"
+                shiftCaps: "a"
             }
         ]
     },
     {
-        name: "Key-S",
+        name: "KeyS",
         langs: [
             {
                 country: "rus",
                 caseDown: "ы",
                 caseUp: "Ы",
                 caps: "Ы",
-                shiftCaps: "Ы"
+                shiftCaps: "s"
             },
             {
                 country: "eng",
                 caseDown: "s",
                 caseUp: "S",
                 caps: "S",
-                shiftCaps: "S"
+                shiftCaps: "s"
             }
         ]
     },
     {
-        name: "Key-D",
+        name: "KeyD",
         langs: [
             {
                 country: "rus",
@@ -613,7 +613,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-F",
+        name: "KeyF",
         langs: [
             {
                 country: "rus",
@@ -632,7 +632,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-G",
+        name: "KeyG",
         langs: [
             {
                 country: "rus",
@@ -651,7 +651,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-H",
+        name: "KeyH",
         langs: [
             {
                 country: "rus",
@@ -670,7 +670,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-J",
+        name: "KeyJ",
         langs: [
             {
                 country: "rus",
@@ -689,7 +689,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-K",
+        name: "KeyK",
         langs: [
             {
                 country: "rus",
@@ -708,7 +708,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-L",
+        name: "KeyL",
         langs: [
             {
                 country: "rus",
@@ -806,7 +806,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-Z",
+        name: "KeyZ",
         langs: [
             {
                 country: "rus",
@@ -825,7 +825,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-X",
+        name: "KeyX",
         langs: [
             {
                 country: "rus",
@@ -844,7 +844,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-C",
+        name: "KeyC",
         langs: [
             {
                 country: "rus",
@@ -863,7 +863,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-V",
+        name: "KeyV",
         langs: [
             {
                 country: "rus",
@@ -882,7 +882,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-B",
+        name: "KeyB",
         langs: [
             {
                 country: "rus",
@@ -901,7 +901,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-N",
+        name: "KeyN",
         langs: [
             {
                 country: "rus",
@@ -920,7 +920,7 @@ let keyList = [
         ]
     },
     {
-        name: "Key-M",
+        name: "KeyM",
         langs: [
             {
                 country: "rus",
