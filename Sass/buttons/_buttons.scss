@@ -28,8 +28,8 @@
 .delete,
 .capslock,
 .enter,
-.shift-left,
-.shift-right,
+.shiftleft,
+.shiftright,
 .space {
     flex: 1 0;
 }
@@ -38,20 +38,22 @@
     flex: 6 1; //344px;
 }
 
-.ctrl-left, .ctrl-right{
+.controlleft, .controlright{
     flex: 1 1;
 }
 
-.backspace, .tab,
+.backspace, 
+.tab,
 .delete,
 .capslock,
 .enter,
-.shift-left,
-.shift-right,
-.space,.ctrl-left,
- .ctrl-right,
- .alt-left,
- .alt-right{
+.shiftleft,
+.shiftright,
+.space,
+.ctrlleft,
+ .ctrlright,
+ .altleft,
+ .altright{
     font-size: 91%;
     font-weight: 700;
 }

@@ -787,7 +787,7 @@ let keyList = [
 ],
 [
     {
-        name: "Shift-Left",
+        name: "ShiftLeft",
         langs: [
             {
                 country: "rus",
@@ -1015,7 +1015,7 @@ let keyList = [
         ]
     },
     {
-        name: "Shift-Right",
+        name: "ShiftRight",
         langs: [
             {
                 country: "rus",
@@ -1055,7 +1055,7 @@ let keyList = [
 ],
 [
     {
-        name: "Ctrl-Left",
+        name: "ControlLeft",
         langs: [
             {
                 country: "rus",
@@ -1074,7 +1074,7 @@ let keyList = [
         ]
     },
     {
-        name: "Alt-Left",
+        name: "AltLeft",
         langs: [
             {
                 country: "rus",
@@ -1112,7 +1112,7 @@ let keyList = [
         ]
     },
     {
-        name: "Alt-Right",
+        name: "AltRight",
         langs: [
             {
                 country: "rus",
@@ -1131,7 +1131,7 @@ let keyList = [
         ]
     },
     {
-        name: "Arrow-Left",
+        name: "ArrowLeft",
         langs: [
             {
                 country: "rus",
@@ -1150,7 +1150,7 @@ let keyList = [
         ]
     },
     {
-        name: "Arrow-Down",
+        name: "ArrowDown",
         langs: [
             {
                 country: "rus",
@@ -1169,7 +1169,7 @@ let keyList = [
         ]
     },
     {
-        name: "Arrow-Right",
+        name: "ArrowRight",
         langs: [
             {
                 country: "rus",
@@ -1188,7 +1188,7 @@ let keyList = [
         ]
     },
     {
-        name: "Ctrl-Right",
+        name: "ControlRight",
         langs: [
             {
                 country: "rus",

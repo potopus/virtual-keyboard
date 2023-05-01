@@ -1,9 +1,14 @@
 let bodyKeyboard;
 let textArea;
-
+let index;
 window.addEventListener("load", () => {
     bodyKeyboard = document.querySelector(".keyboard-wrapper");
     textArea = document.querySelector(".text-area");
+
+    window.onkeydown = function (event) {
+        event.preventDefault()
+    }
+    
 })
 
 // function buttonActive(){
@@ -16,10 +21,11 @@ window.addEventListener("load", () => {
 // on press by keyboard
 document.addEventListener("keydown", (event) => {
     console.log("keyDown: " + event.code);
+    textArea.focus();
     let keyDown = document.querySelector(`.${event.code.toLowerCase()}`);
     // console.log( ...keyDown.classList)
     keyDown.classList.add("active");
-    textArea.textContent += keyDown.textContent;
+    insertSymbol(keyDown);
 });
 
 document.addEventListener("keyup", (event) => {
@@ -27,6 +33,7 @@ document.addEventListener("keyup", (event) => {
     let keyDown = document.querySelector(`.${event.code.toLowerCase()}`);
     // console.log( ...keyDown.classList)
     keyDown.classList.remove("active");
+   
 });
 
 
@@ -34,6 +41,8 @@ document.addEventListener("keyup", (event) => {
 
 document.addEventListener("mousedown", (event) => {
     console.log("keyDown: " + event.code);
+    console.dir(textArea);
+    textArea.focus();
     let button = event.target.closest('button');
 
     // let keyBody = document.getElementsByClassName('keyboard-wrapper');
@@ -45,7 +54,7 @@ document.addEventListener("mousedown", (event) => {
 
     button.classList.add("active");
     // addActiveClass(event.code.toLowerCase());
-    textArea.textContent += button.textContent;
+    insertSymbol(button);
 });
 
 document.addEventListener("mouseup", (event) => {
@@ -69,5 +78,50 @@ document.addEventListener("mouseup", (event) => {
 //     // console.log( ...keyDown.classList)
 //     keyDown.classList.remove("active");
 // }
+
+function insertSymbol(item) {
+    if (isSpecButton(item)) { return };
+    if (item.classList.contains("tab")) {
+        // console.log("index: "+ index);
+        textArea.setRangeText("\u0009",textArea.selectionStart,textArea.selectionEnd,"end")
+        return
+    }
+    if (item.classList.contains("backspace")) {
+        console.log("backspace: ");
+        if (textArea.selectionStart===0)return;
+        textArea.setRangeText("",textArea.selectionStart-1,textArea.selectionEnd,"end");
+        return
+    }
+    if (item.classList.contains("delete")) {
+        console.log("delete: ");
+        textArea.setRangeText("",textArea.selectionStart,textArea.selectionEnd+1,"end")
+        return
+    }
+    if (item.classList.contains("enter")) {
+        console.log("enter: ");
+        textArea.setRangeText("\n",textArea.selectionStart,textArea.selectionEnd+1,"end")
+        return
+    }
+    
+    textArea.setRangeText(item.textContent,textArea.selectionStart,textArea.selectionEnd,"end");
+}
+
+
+function isSpecButton(btn) {
+    let classArr = btn.classList;
+    if (
+        classArr.contains("shiftleft") ||
+        classArr.contains("shiftright") ||
+        classArr.contains("controlleft") ||
+        classArr.contains("controlright") ||
+        classArr.contains("altleft") ||
+        classArr.contains("altright") ||
+        classArr.contains("capslock")
+    ) {
+        console.log("specSymbol: " + classArr);
+        return true
+    }
+}
+
 
 // export {buttonActive}
