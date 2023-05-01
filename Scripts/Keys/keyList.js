@@ -12,9 +12,9 @@ let keyList = [
             },
             {
                 country: "eng",
-                caseDown: "`",
+                caseDown: "\`",
                 caseUp: "~",
-                caps: "`",
+                caps: "\`",
                 shiftCaps: "~"
             }
         ]

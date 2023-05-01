@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
 
 // on press by keyboard
 document.addEventListener("keydown", (event) => {
-    console.log("keyDown: " + event.code);
+    // console.log("keyDown: " + event.code);
     textArea.focus();
     let keyDown = document.querySelector(`.${event.code.toLowerCase()}`);
     // console.log( ...keyDown.classList)
@@ -29,7 +29,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("keyup", (event) => {
-    console.log("keyUp: " + event.code);
+    // console.log("keyUp: " + event.code);
     let keyDown = document.querySelector(`.${event.code.toLowerCase()}`);
     // console.log( ...keyDown.classList)
     keyDown.classList.remove("active");
@@ -40,8 +40,8 @@ document.addEventListener("keyup", (event) => {
 // on click by mouse
 
 document.addEventListener("mousedown", (event) => {
-    console.log("keyDown: " + event.code);
-    console.dir(textArea);
+    // console.log("keyDown: " + event.code);
+    // console.dir(textArea);
     textArea.focus();
     let button = event.target.closest('button');
 
@@ -58,7 +58,7 @@ document.addEventListener("mousedown", (event) => {
 });
 
 document.addEventListener("mouseup", (event) => {
-    console.log("keyUp: " + event.code);
+    // console.log("keyUp: " + event.code);
     let button = event.target.closest('button');
     if (!button) return;
     //if (!keyBody.contains(button)) return; 
@@ -102,16 +102,20 @@ function insertSymbol(item) {
         textArea.setRangeText("\n",textArea.selectionStart,textArea.selectionEnd+1,"end")
         return
     }
+    if (item.classList.contains("shiftleft")||item.classList.contains("shiftright")) {
+        console.log("shift?: ");
+        textArea.setRangeText("shift?",textArea.selectionStart,textArea.selectionEnd+1,"end")
+        return
+    }
     
-    textArea.setRangeText(item.textContent,textArea.selectionStart,textArea.selectionEnd,"end");
+    
+    textArea.setRangeText(item.innerText,textArea.selectionStart,textArea.selectionEnd,"end");
 }
 
 
 function isSpecButton(btn) {
     let classArr = btn.classList;
     if (
-        classArr.contains("shiftleft") ||
-        classArr.contains("shiftright") ||
         classArr.contains("controlleft") ||
         classArr.contains("controlright") ||
         classArr.contains("altleft") ||
