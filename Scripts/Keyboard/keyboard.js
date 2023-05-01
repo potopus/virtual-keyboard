@@ -54,7 +54,7 @@ function createButton(setting) {
         let shiftCaps = document.createElement("span");
 
         if (langsMass[i].country === "eng") {
-            console.log(langsMass[i].country);
+            // console.log(langsMass[i].country);
             country.classList.add(`${langsMass[i].country}`);
             caseDown.classList.add(`caseDown`);
         } else {

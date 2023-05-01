@@ -33,6 +33,8 @@ document.addEventListener("keyup", (event) => {
     let keyDown = document.querySelector(`.${event.code.toLowerCase()}`);
     // console.log( ...keyDown.classList)
     keyDown.classList.remove("active");
+    console.log(keyDown.classList);
+    useShift(keyDown);
    
 });
 
@@ -64,6 +66,8 @@ document.addEventListener("mouseup", (event) => {
     //if (!keyBody.contains(button)) return; 
 
     button.classList.remove("active");
+    console.log(button.classList);
+    useShift(button);
 });
 
 // textarea.textContent
@@ -104,7 +108,8 @@ function insertSymbol(item) {
     }
     if (item.classList.contains("shiftleft")||item.classList.contains("shiftright")) {
         console.log("shift?: ");
-        textArea.setRangeText("shift?",textArea.selectionStart,textArea.selectionEnd+1,"end")
+        // textArea.setRangeText("shift?",textArea.selectionStart,textArea.selectionEnd+1,"end");
+        useShift(item);
         return
     }
     
@@ -127,5 +132,36 @@ function isSpecButton(btn) {
     }
 }
 
+function useShift(item){
+    let lang;
+    let keyboardLang;
+    if((item.classList.contains('shiftleft')||item.classList.contains('shiftright'))&&item.classList.contains('active')){
+        for (let i=0;i<item.children.length;i++){
+        if(!item.children[i].classList.contains("hidden")){
+            lang= item.children[i].className;
+        };
+        }
+        console.log(lang)
+        lang=bodyKeyboard.querySelectorAll(`.${lang}`);
+        lang.forEach(elem=> {
+            elem.querySelector('.caseDown').classList.add("hidden");
+            elem.querySelector('.caseUp').classList.remove("hidden");
+        });
+    }else  if((item.classList.contains('shiftleft')||item.classList.contains('shiftright'))&&!item.classList.contains('active')){
+        console.log(item.classList);
+        for (let i=0;i<item.children.length;i++){
+            if(!item.children[i].classList.contains("hidden")){
+                lang= item.children[i].className;
+            };
+            }
+            console.log("second lang: "+lang)
+            lang=bodyKeyboard.querySelectorAll(`.${lang}`);
+            lang.forEach(elem=> {
+                elem.querySelector('.caseDown').classList.remove("hidden");
+                elem.querySelector('.caseUp').classList.add("hidden");
+            });
+
+    }
+}
 
 // export {buttonActive}
