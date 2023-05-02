@@ -582,7 +582,7 @@ export default [
           caseDown: 'ы',
           caseUp: 'Ы',
           caps: 'Ы',
-          shiftCaps: 's',
+          shiftCaps: 'ы',
         },
         {
           country: 'eng',
