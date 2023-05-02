@@ -1,6 +1,6 @@
 let bodyKeyboard;
 let textArea;
-let pressedKeys = new Set();
+const pressedKeys = new Set();
 window.addEventListener('load', () => {
   bodyKeyboard = document.querySelector('.keyboard-wrapper');
   textArea = document.querySelector('.text-area');
@@ -15,79 +15,6 @@ function isSpecButton(btn) {
   return false;
 }
 
-function useShift(item) {
-  // узнать какой элемент с классом lang сейчас active
-  let lang = checkLangOnElement(item);
-
-  if (item.innerText !== "Shift") { return };
-  // проверить какой класс у кнопки shift без hidden
-  let langElem = item.querySelector(`.${lang}`);
-  let openRegistrElement;
-  let closeRegistrElement;
-  for (let i = 0; i < langElem.children.length; i += 1) {
-    console.log(langElem.children[i]);
-    if (!langElem.children[i].classList.contains('hidden')) {
-      console.log("Беру: " + langElem.children[i].className);
-      openRegistrElement = langElem.children[i].className;
-    }
-  }
-  console.log(openRegistrElement);
-  closeRegistrElement = findCloseElement(openRegistrElement);
-
-  if ((item.classList.contains('shiftleft') || item.classList.contains('shiftright')) && item.classList.contains('active')) {
-    changeHiddenOnKeyButton(lang, openRegistrElement, closeRegistrElement);
-  } else if ((item.classList.contains('shiftleft') || item.classList.contains('shiftright')) &&
-    !item.classList.contains('active')) {
-    changeHiddenOnKeyButton(lang, openRegistrElement, closeRegistrElement);
-  }
-}
-
-function findCloseElement(openElement) {
-  if (openElement === 'caseDown') { return 'caseUp' }
-  else if (openElement === 'caseUp') { return 'caseDown' }
-  else if (openElement === "caps") { return "shiftCaps" }
-  else if (openElement === "shiftCaps") { return "caps" }
-
-}
-
-
-function useCapsLock(item) {
-  let lang = checkLangOnElement(item);
-  if (item.classList.contains('capslock') && item.classList.contains('active')) {
-    changeHiddenOnKeyButton(lang, 'caseDown', 'caps');
-  } else if (item.classList.contains('capslock') &&
-    !item.classList.contains('active')) {
-    changeHiddenOnKeyButton(lang, 'caps', 'caseDown');
-  }
-}
-
-function useLeftCtrlAlt(item) {
-  console.log("вошли в: useLeftCtrlAlt");
-  let anotherLang;
-  let lang = checkLangOnElement(item);
-  if (lang === "eng") { anotherLang = "rus" }
-  else { anotherLang = "eng" };
-  console.log(lang);
-  console.log(item.children);
-  let langElem = item.querySelector(`.${lang}`);
-  let openRegistrElement;
-  // выбираем открытый элемент с классом без hidden
-  for (let i = 0; i < langElem.children.length; i += 1) {
-    console.log(langElem.children[i]);
-    if (!langElem.children[i].classList.contains('hidden')) {
-      console.log("Беру: " + langElem.children[i].className);
-      openRegistrElement = langElem.children[i].className;
-    }
-  }
-  console.log(openRegistrElement);
-  transportToAnotherLang(lang, anotherLang, openRegistrElement);
-  // for (let element of item.children) {
-  //   if (element.classList.contains(lang)) {
-  //     element.classList.add("hidden")
-  //   } else (element.classList.remove("hidden"))
-  // }
-}
-
 function checkLangOnElement(parentItem) {
   let language;
   for (let i = 0; i < parentItem.children.length; i += 1) {
@@ -95,17 +22,19 @@ function checkLangOnElement(parentItem) {
       language = parentItem.children[i].className;
     }
   }
-  return language
+  return language;
+}
+
+function findCloseElement(openElement) {
+  if (openElement === 'caseDown') { return 'caseUp'; }
+  if (openElement === 'caseUp') { return 'caseDown'; }
+  if (openElement === 'caps') { return 'shiftCaps'; }
+  if (openElement === 'shiftCaps') { return 'caps'; }
+  return undefined;
 }
 
 function changeHiddenOnKeyButton(lang, hideElem, showElem) {
-  // for (let i = 0; i < parentItem.children.length; i += 1) {
-  //   if (!parentItem.children[i].classList.contains('hidden')) {
-  //     lang = parentItem.children[i].className;
-  //   }
-  // }
-
-  let langMass = bodyKeyboard.querySelectorAll(`.${lang}`);
+  const langMass = bodyKeyboard.querySelectorAll(`.${lang}`);
   // изменить класс hidden у всех кнопок
   langMass.forEach((elem) => {
     elem.querySelector(`.${hideElem}`).classList.add('hidden');
@@ -113,23 +42,69 @@ function changeHiddenOnKeyButton(lang, hideElem, showElem) {
   });
 }
 
+function useShift(item) {
+  // узнать какой элемент с классом lang сейчас active
+  const lang = checkLangOnElement(item);
+
+  if (item.innerText !== 'Shift') { return; }
+  // проверить какой класс у кнопки shift без hidden
+  const langElem = item.querySelector(`.${lang}`);
+  let openRegistrElement;
+  for (let i = 0; i < langElem.children.length; i += 1) {
+    if (!langElem.children[i].classList.contains('hidden')) {
+      openRegistrElement = langElem.children[i].className;
+    }
+  }
+  const closeRegistrElement = findCloseElement(openRegistrElement);
+  if ((item.classList.contains('shiftleft') || item.classList.contains('shiftright')) && item.classList.contains('active')) {
+    changeHiddenOnKeyButton(lang, openRegistrElement, closeRegistrElement);
+  } else if ((item.classList.contains('shiftleft') || item.classList.contains('shiftright'))
+    && !item.classList.contains('active')) {
+    changeHiddenOnKeyButton(lang, openRegistrElement, closeRegistrElement);
+  }
+}
+
+function useCapsLock(item) {
+  const lang = checkLangOnElement(item);
+  if (item.classList.contains('capslock') && item.classList.contains('active')) {
+    changeHiddenOnKeyButton(lang, 'caseDown', 'caps');
+  } else if (item.classList.contains('capslock')
+    && !item.classList.contains('active')) {
+    changeHiddenOnKeyButton(lang, 'caps', 'caseDown');
+  }
+}
+
 function transportToAnotherLang(lang, anotherLang, openRegistrElement) {
-  let allButtons = document.querySelectorAll(".keyboard__key");
-  allButtons.forEach(button => {
+  const allButtons = document.querySelectorAll('.keyboard__key');
+  allButtons.forEach((button) => {
     // добавить hidden открытому элементу
-    let openElement = button.querySelector(`.${lang}`);
+    const openElement = button.querySelector(`.${lang}`);
     openElement.classList.add('hidden');
-    let openCurrentRegistr = openElement.querySelector(`.${openRegistrElement}`);
+    const openCurrentRegistr = openElement.querySelector(`.${openRegistrElement}`);
     openCurrentRegistr.classList.add('hidden');
     // убрать hidden закрытому элементу
-    let closeElement = button.querySelector(`.${anotherLang}`);
+    const closeElement = button.querySelector(`.${anotherLang}`);
     closeElement.classList.remove('hidden');
-    let closeCurrentRegistr = closeElement.querySelector(`.${openRegistrElement}`);
+    const closeCurrentRegistr = closeElement.querySelector(`.${openRegistrElement}`);
     closeCurrentRegistr.classList.remove('hidden');
-
   });
 }
 
+function useLeftCtrlAlt(item) {
+  let anotherLang;
+  const lang = checkLangOnElement(item);
+  if (lang === 'eng') { anotherLang = 'rus'; } else { anotherLang = 'eng'; }
+  const langElem = item.querySelector(`.${lang}`);
+  let openRegistrElement;
+  // выбираем открытый элемент с классом без hidden
+  for (let i = 0; i < langElem.children.length; i += 1) {
+    if (!langElem.children[i].classList.contains('hidden')) {
+      openRegistrElement = langElem.children[i].className;
+    }
+  }
+  transportToAnotherLang(lang, anotherLang, openRegistrElement);
+  localStorage.setItem('lang', `${anotherLang}`);
+}
 
 function insertSymbol(item) {
   if (isSpecButton(item)) { return; }
@@ -164,18 +139,13 @@ function insertSymbol(item) {
   }
   if (item.classList.contains('controlleft') || item.classList.contains('altleft')) {
     pressedKeys.add(item.innerText);
-    // console.log(`вход елементом: ${keyDown.innerText}`);
-    // console.log(pressedKeys);
     if (!(pressedKeys.has('Ctrl') && pressedKeys.has('Alt'))) {
       return;
     }
-    // console.log(pressedKeys);
     pressedKeys.clear();
     useLeftCtrlAlt(item);
-    console.log("Работает левае");
-    return
+    return;
   }
-
 
   textArea.setRangeText(item.innerText, textArea.selectionStart, textArea.selectionEnd, 'end');
 }
@@ -199,9 +169,7 @@ export function activateKeyboardKeyListeners() {
     if (keyUp.classList.contains('controlleft') || keyUp.classList.contains('altleft')) {
       pressedKeys.delete(keyUp.innerText);
       keyUp.classList.remove('active');
-      console.log("Вижу удалил");
-    }
-    else if (!keyUp.classList.contains('capslock')) {
+    } else if (!keyUp.classList.contains('capslock')) {
       keyUp.classList.remove('active');
       useShift(keyUp);
     }
@@ -215,8 +183,6 @@ export function activateMouseKeyListeners() {
     const button = event.target.closest('button');
     if (!button) return;
     if (!bodyKeyboard.contains(button)) return;
-
-
     if (!button.classList.contains('capslock')) {
       button.classList.add('active');
       insertSymbol(button);
@@ -229,7 +195,6 @@ export function activateMouseKeyListeners() {
   document.addEventListener('mouseup', (event) => {
     const button = event.target.closest('button');
     if (!button) return;
-
     if (!button.classList.contains('capslock')) {
       button.classList.remove('active');
       useShift(button);
