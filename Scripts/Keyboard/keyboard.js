@@ -9,7 +9,6 @@ function createButton(setting) {
     const shiftCaps = document.createElement('span');
 
     if (langsMass[i].country === 'eng') {
-      // console.log(langsMass[i].country);
       country.classList.add(`${langsMass[i].country}`);
       caseDown.classList.add('caseDown');
     } else {
@@ -33,7 +32,6 @@ function createButton(setting) {
   }
 
   button.classList.add('keyboard__key', 'key', `${setting.name.toLowerCase()}`);
-  // button.innerText = `${setting.langs[0].caseDown}`
   return button;
 }
 
@@ -78,4 +76,3 @@ export default function createKeyboard(keyList) {
   return conteiner;
 }
 
-// console.log(keyList[0][0].langs.length);
