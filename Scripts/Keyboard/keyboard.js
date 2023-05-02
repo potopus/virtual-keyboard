@@ -1,3 +1,13 @@
+function defineLang() {
+  let lang = localStorage.getItem('lang');
+  if (lang) {
+    return lang;
+  }
+  localStorage.setItem('lang', 'eng');
+  lang = 'eng';
+  return lang;
+}
+
 function createButton(setting) {
   const langsMass = setting.langs;
   const button = document.createElement('button');
@@ -7,8 +17,8 @@ function createButton(setting) {
     const caseUp = document.createElement('span');
     const caps = document.createElement('span');
     const shiftCaps = document.createElement('span');
-
-    if (langsMass[i].country === 'eng') {
+    const defaultLang = defineLang();
+    if (langsMass[i].country === defaultLang) {
       country.classList.add(`${langsMass[i].country}`);
       caseDown.classList.add('caseDown');
     } else {
@@ -75,4 +85,3 @@ export default function createKeyboard(keyList) {
 
   return conteiner;
 }
-
