@@ -2,14 +2,6 @@
 
 /node_modules
 
-#  игнорировать линтер
-
-.eslintrc.js
-
-# игнорирование файлов package
-
-package-lock.json
-package.json
 
 # игнорирование черновиков
 index02.html

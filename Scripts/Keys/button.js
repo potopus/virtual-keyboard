@@ -122,7 +122,7 @@ function insertSymbol(item) {
     return;
   }
   if (item.classList.contains('enter')) {
-    textArea.setRangeText('\n', textArea.selectionStart, textArea.selectionEnd + 1, 'end');
+    textArea.setRangeText('\n', textArea.selectionStart, textArea.selectionEnd, 'end');
     return;
   }
   if (item.classList.contains('space')) {
