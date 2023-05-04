@@ -155,6 +155,7 @@ export function activateKeyboardKeyListeners() {
   document.addEventListener('keydown', (event) => {
     textArea.focus();
     const keyDown = document.querySelector(`.${event.code.toLowerCase()}`);
+    if (!keyDown) { return; }
     if (!keyDown.classList.contains('capslock')) {
       keyDown.classList.add('active');
       insertSymbol(keyDown);
@@ -166,6 +167,7 @@ export function activateKeyboardKeyListeners() {
 
   document.addEventListener('keyup', (event) => {
     const keyUp = document.querySelector(`.${event.code.toLowerCase()}`);
+    if (!keyUp) { return; }
     if (keyUp.classList.contains('controlleft') || keyUp.classList.contains('altleft')) {
       pressedKeys.delete(keyUp.innerText);
       keyUp.classList.remove('active');
