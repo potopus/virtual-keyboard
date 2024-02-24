@@ -1,0 +1,279 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+}
+
+body {
+  display: grid;
+  overflow: auto;
+}
+
+#wt-sky-root {
+  display: none !important;
+}
+
+.key {
+  width: 40px;
+  height: 40px;
+  margin: 3px;
+  text-align: center;
+  color: #ffffff;
+  background: #1cb0a0;
+  border-radius: 3px;
+  font-size: 86%;
+  font-weight: 500;
+  border: 2px solid #ababab;
+  cursor: pointer;
+  transition: border 0.2s, border-radius 0.2s, background-color 0.2s;
+}
+.key:hover {
+  border: 2px solid rgba(255, 191, 73, 0.6588235294);
+  transition: border 0.05s;
+}
+@media screen and (max-width: 768px) {
+  .key {
+    width: clamp(19px, -0.5226px + 5.2764vi, 40px);
+  }
+}
+@media screen and (max-width: 340px) {
+  .key {
+    width: auto;
+    min-width: 14px;
+  }
+}
+
+.backspace {
+  flex: 1 0 100px;
+}
+@media screen and (max-width: 768px) {
+  .backspace {
+    flex-basis: auto;
+  }
+}
+
+.tab,
+.delete,
+.capslock,
+.enter,
+.shiftleft,
+.shiftright,
+.space {
+  flex: 1 0;
+}
+
+.space {
+  flex: 6 1;
+}
+@media screen and (max-width: 768px) {
+  .space {
+    flex: 2 1;
+  }
+}
+
+.controlleft,
+.controlright {
+  flex: 0.6 1;
+}
+
+.backspace,
+.tab,
+.delete,
+.capslock,
+.enter,
+.shiftleft,
+.shiftright,
+.space,
+.controlleft,
+.controlright .altleft,
+.altright {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-spec-btn: 11px;
+  }
+  .backspace,
+  .tab,
+  .delete,
+  .capslock,
+  .enter,
+  .shiftleft,
+  .shiftright,
+  .space,
+  .altleft,
+  .altright {
+    font-size: 0;
+    position: relative;
+  }
+  .backspace::before,
+  .tab::before,
+  .delete::before,
+  .capslock::before,
+  .enter::before,
+  .shiftleft::before,
+  .shiftright::before,
+  .space::before,
+  .altleft::before,
+  .altright::before {
+    font-size: var(--font-size-spec-btn);
+  }
+  .backspace::before,
+  .tab::before,
+  .delete::before,
+  .capslock::before,
+  .enter::before,
+  .shiftleft::before,
+  .shiftright::before,
+  .space::before,
+  .altleft::before,
+  .altright::before {
+    /* color: white; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .controlleft,
+  .controlright {
+    font-size: var(--font-size-spec-btn);
+  }
+  .capslock::before {
+    content: "CL";
+  }
+  .backspace::before {
+    content: "BS";
+  }
+  .tab::before {
+    content: "TB";
+  }
+  .delete::before {
+    content: "DL";
+  }
+  .enter::before {
+    content: "↵";
+    font-size: 18px;
+  }
+  .shiftleft::before {
+    content: "ST";
+  }
+  .shiftright::before {
+    content: "ST";
+  }
+  .space::before {
+    content: "";
+  }
+  .ctrlleft::before {
+    content: "CTR";
+  }
+  .ctrlright::before {
+    content: "CTR";
+  }
+  .altleft::before {
+    content: "ALT";
+  }
+  .altright::before {
+    content: "ALT";
+  }
+  .altleft,
+  .altright {
+    flex: 1 1;
+  }
+}
+.active {
+  background: #fd4855;
+  border-color: #ffffff;
+  border-radius: 7px;
+}
+.active:hover {
+  border-color: #ffffff;
+}
+
+.conteiner {
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .conteiner {
+    padding: 0 5px;
+  }
+}
+
+.title, .text {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: #179385;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .title, .text {
+    font-size: clamp(20px, 5.7143px + 4.4643vi, 40px);
+  }
+}
+
+.text {
+  color: #2e2e2e;
+  font-weight: 500;
+  font-size: clamp(11px, 4.5714px + 2.0089vi, 20px);
+}
+
+.text-area {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  height: 200px;
+  margin-bottom: 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.textChangeLang {
+  padding-bottom: 20px;
+}
+
+.keyboard-wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #179385;
+  border: 3px solid #0f685e;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  width: 100%;
+  margin-bottom: 0.5%;
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */
