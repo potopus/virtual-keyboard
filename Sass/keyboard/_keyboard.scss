@@ -1,6 +1,32 @@
+
+// html{
+//     width: 100%;
+//     border: 4px solid red;
+//     height: 100%;
+// }
+
+// html,body{
+//     height: 100%;
+// }
+
+// body{
+//     display: flex;
+//     align-items: center;
+// }
+
+
 .conteiner{
+    width: 100%;
+    padding: 0 20px;
     margin:0 auto;
+    @media screen and (max-width:768px) {
+    &{
+        padding: 0 5px;
+    }
+        
+    }
 }
+
 
 .title, .text{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +44,8 @@ font-size: 20px;
 .text-area{
     display: block;
     margin: 0 auto;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     height: 200px;
     margin-bottom: 20px;
     user-select: none;
@@ -28,13 +55,20 @@ font-size: 20px;
     user-select: none;
 }
 
+.textChangeLang{
+    padding-bottom: 20px;
+}
+
 .keyboard-wrapper{
-    width:700px;
+    width: 100%;
+    max-width:700px;
     margin: 0 auto;
     background-color: #179385;
     border: 3px solid #0f685e;
     border-radius: 5px;
     padding: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .row{

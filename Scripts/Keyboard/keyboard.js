@@ -59,11 +59,11 @@ export default function createKeyboard(keyList) {
   textArea.classList.add('text-area');
   bodyKeyboard.classList.add('keyboard-wrapper', 'keyboard');
   textOS.classList.add('keyboard-text', 'text');
-  textChangeLang.classList.add('keyboard-text', 'text');
+  textChangeLang.classList.add('keyboard-text', 'text', "textChangeLang");
 
   // set attributes and text
   textArea.setAttribute('row', 5);
-  textArea.setAttribute('cols', 50);
+  textArea.setAttribute('cols', '100%');
   title.innerText = 'RSS Виртуальная клавиатура';
   textOS.innerText = 'Клавиатура выполнена в ОС Windows 7. Home edition. Service pack 1.';
   textChangeLang.innerText = 'Комбинация клавиш для изменения языка ввода: левые Ctrl + Alt';
@@ -78,10 +78,10 @@ export default function createKeyboard(keyList) {
   }
   // add to conteiner
   conteiner.appendChild(title);
-  conteiner.appendChild(textArea);
-  conteiner.appendChild(bodyKeyboard);
   conteiner.appendChild(textOS);
   conteiner.appendChild(textChangeLang);
+  conteiner.appendChild(textArea);
+  conteiner.appendChild(bodyKeyboard);
 
   return conteiner;
 }
