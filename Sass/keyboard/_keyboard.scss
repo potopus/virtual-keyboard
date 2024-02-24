@@ -34,12 +34,20 @@
     font-size: 40px;
     color: #179385;
     text-align: center;
+
+    @media screen and (max-width:768px) {
+        &{
+            font-size: clamp(20px, 5.7143px + 4.4643vi, 40px);
+        }
+    }
 }
+
+
 
 .text{
 color: #2e2e2e;
 font-weight: 500;
-font-size: 20px;
+font-size: clamp(11px, 4.5714px + 2.0089vi, 20px);
 }
 .text-area{
     display: block;
